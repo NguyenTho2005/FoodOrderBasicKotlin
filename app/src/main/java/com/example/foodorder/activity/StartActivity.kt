@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.foodorder.R
+import com.google.firebase.auth.FirebaseAuth
 import com.example.foodorder.databinding.ActivityStartBinding
 
 
@@ -15,9 +16,17 @@ class StartActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        binding.btnNext.setOnClickListener{
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+
+        val auth = FirebaseAuth.getInstance()
+
+        binding.btnNext.setOnClickListener {
+            if (auth.currentUser != null) {
+                // Người dùng đã đăng nhập
+                startActivity(Intent(this, MainActivity::class.java))
+            } else {
+                startActivity(Intent(this, LoginActivity::class.java))
+            }
+            finish()
         }
     }
 }
