@@ -3,6 +3,9 @@ package com.example.foodorder.activity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import android.content.Intent
+import android.widget.ImageButton
+import androidx.core.view.isVisible
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.afollestad.materialdialogs.DialogAction
 import com.afollestad.materialdialogs.MaterialDialog
@@ -16,9 +19,14 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         mActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mActivityMainBinding?.root)
 
+        mActivityMainBinding?.toolbar?.layoutToolbar?.findViewById<ImageButton>(R.id.btn_user_profile)
+            ?.setOnClickListener {
+                startActivity(Intent(this, UserProfileActivity::class.java))
+            }
         mActivityMainBinding?.viewpager2?.isUserInputEnabled = false
         val mainViewPagerAdapter = MainViewPagerAdapter(this)
         mActivityMainBinding?.viewpager2?.adapter = mainViewPagerAdapter

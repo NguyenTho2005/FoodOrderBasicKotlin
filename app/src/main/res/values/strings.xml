@@ -127,5 +127,6 @@
     <string name="name">Name</string>
     <string name="already_have_an_account">Already Have An Account ?</string>
     <string name="create_account">Create Account</string>
+    <string name="user_profile">Cá nhân</string>
 
 </resources>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="?actionBarSize"
     android:background="@color/colorPrimary"
-    tools:ignore="ContentDescription" >
+    tools:ignore="ContentDescription">
 
     <ImageView
         android:id="@+id/img_back"
@@ -26,11 +26,25 @@
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_xnormal" />
 
+    <!-- Nút avatar user ở góc phải -->
+    <ImageButton
+        android:id="@+id/btn_user_profile"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/circle_bg"
+        android:src="@drawable/ic_avatar_default"
+        android:scaleType="centerInside"
+        android:contentDescription="@string/user_profile" />
+
+    <!-- Nút giỏ hàng nằm bên trái avatar -->
     <ImageView
         android:id="@+id/img_cart"
         android:layout_width="@dimen/define_dimen_45"
         android:layout_height="@dimen/define_dimen_45"
-        android:layout_alignParentEnd="true"
+        android:layout_toStartOf="@id/btn_user_profile"
         android:layout_centerVertical="true"
         android:layout_marginEnd="@dimen/define_dimen_4"
         android:padding="@dimen/define_dimen_6"
@@ -38,4 +52,3 @@
         android:visibility="gone" />
 
 </RelativeLayout>
-
